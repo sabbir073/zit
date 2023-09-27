@@ -82,8 +82,10 @@ const Sidebar = () => {
                     </div>
                     <PerfectScrollbar className="relative h-[calc(100vh-80px)]">
                         <ul className="relative space-y-0.5 p-4 py-0 font-semibold">
-                            <li className="menu nav-item">
-                                <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
+                            <li className="nav-item">
+                                    
+
+                                    <Link href="/" className="group">
                                     <div className="flex items-center">
                                         <svg className="group-hover:!text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -98,30 +100,7 @@ const Sidebar = () => {
                                         </svg>
                                         <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">{t('dashboard')}</span>
                                     </div>
-
-                                    <div className={currentMenu === 'dashboard' ? 'rotate-90' : 'rtl:rotate-180'}>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L15 12L9 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                </button>
-
-                                <AnimateHeight duration={300} height={currentMenu === 'dashboard' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
-                                        <li>
-                                            <Link href="/">{t('sales')}</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/analytics">{t('analytics')}</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/finance">{t('finance')}</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/crypto">{t('crypto')}</Link>
-                                        </li>
-                                    </ul>
-                                </AnimateHeight>
+                                    </Link>
                             </li>
 
                             <h2 className="-mx-4 mb-1 flex items-center bg-white-light/30 py-3 px-7 font-extrabold uppercase dark:bg-dark dark:bg-opacity-[0.08]">
