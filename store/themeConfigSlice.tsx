@@ -100,7 +100,7 @@ const themeConfigSlice = createSlice({
         },
 
         setPageTitle(state, { payload }) {
-            document.title = `${payload} | - ZIT`;
+            document.title = `${payload} | ZIT`;
         },
     },
 });

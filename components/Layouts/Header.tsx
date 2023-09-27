@@ -122,7 +122,7 @@ const Header = () => {
                     <div className="horizontal-logo flex items-center justify-between ltr:mr-2 rtl:ml-2 lg:hidden">
                         <Link href="/" className="main-logo flex shrink-0 items-center">
                             <img className="inline w-8 ltr:-ml-1 rtl:-mr-1" src="/assets/images/logo.svg" alt="logo" />
-                            <span className="hidden align-middle text-2xl  font-semibold  transition-all duration-300 ltr:ml-1.5 rtl:mr-1.5 dark:text-white-light md:inline">VRISTO</span>
+                            <span className="hidden align-middle text-2xl  font-semibold  transition-all duration-300 ltr:ml-1.5 rtl:mr-1.5 dark:text-white-light md:inline">ZIT</span>
                         </Link>
                         <button
                             type="button"
@@ -139,7 +139,7 @@ const Header = () => {
 
                     <div className="hidden ltr:mr-2 rtl:ml-2 sm:block">
                         <ul className="flex items-center space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
-                            <li>
+                            {/* <li>
                                 <Link href="/apps/calendar" className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -152,8 +152,8 @@ const Header = () => {
                                         <path opacity="0.5" d="M2 9H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                                     </svg>
                                 </Link>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                                 <Link href="/apps/todolist" className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -176,8 +176,8 @@ const Header = () => {
                                         />
                                     </svg>
                                 </Link>
-                            </li>
-                            <li>
+                            </li> */}
+                            {/* <li>
                                 <Link href="/apps/chat" className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle r="3" transform="matrix(-1 0 0 1 19 5)" stroke="currentColor" strokeWidth="1.5" />
@@ -190,7 +190,7 @@ const Header = () => {
                                         />
                                     </svg>
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                     <div className="flex items-center space-x-1.5 ltr:ml-auto rtl:mr-auto rtl:space-x-reverse dark:text-[#d0d2d6] sm:flex-1 ltr:sm:ml-0 sm:rtl:mr-0 lg:space-x-2">
@@ -230,7 +230,7 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
-                        <div>
+                         <div>
                             {themeConfig.theme === 'light' ? (
                                 <button
                                     className={`${
@@ -290,7 +290,7 @@ const Header = () => {
                                 </button>
                             )}
                         </div>
-                        <div className="dropdown shrink-0">
+                        {/* <div className="dropdown shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
                                 placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
@@ -318,8 +318,8 @@ const Header = () => {
                                     })}
                                 </ul>
                             </Dropdown>
-                        </div>
-                        <div className="dropdown shrink-0">
+                        </div> */}
+                        {/* <div className="dropdown shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
                                 placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
@@ -415,8 +415,8 @@ const Header = () => {
                                     )}
                                 </ul>
                             </Dropdown>
-                        </div>
-                        <div className="dropdown shrink-0">
+                        </div> */}
+                        {/* <div className="dropdown shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
                                 placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
@@ -514,7 +514,7 @@ const Header = () => {
                                     )}
                                 </ul>
                             </Dropdown>
-                        </div>
+                        </div> */}
                         <div className="dropdown flex shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
@@ -639,7 +639,7 @@ const Header = () => {
                                 </svg>
                             </div>
                         </button>
-                        <ul className="sub-menu">
+                        {/* <ul className="sub-menu">
                             <li>
                                 <Link href="/">{t('sales')}</Link>
                             </li>
@@ -652,7 +652,7 @@ const Header = () => {
                             <li>
                                 <Link href="/crypto">{t('crypto')}</Link>
                             </li>
-                        </ul>
+                        </ul> */}
                     </li>
                     <li className="menu nav-item relative">
                         <button type="button" className="nav-link">
@@ -701,7 +701,7 @@ const Header = () => {
                                 </svg>
                             </div>
                         </button>
-                        <ul className="sub-menu">
+                        {/* <ul className="sub-menu">
                             <li>
                                 <Link href="/apps/chat">{t('chat')}</Link>
                             </li>
@@ -747,7 +747,7 @@ const Header = () => {
                             <li>
                                 <Link href="/apps/calendar">{t('calendar')}</Link>
                             </li>
-                        </ul>
+                        </ul> */}
                     </li>
                     <li className="menu nav-item relative">
                         <button type="button" className="nav-link">
