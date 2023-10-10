@@ -113,7 +113,7 @@ const Sidebar = () => {
                             <li className="nav-item">
                                 <ul>
                                     <li className="nav-item">
-                                        <Link href="/vds" className="group">
+                                        <Link href="/vds/" className="group">
                                             <div className="flex items-center">
                                                 <svg className="group-hover:!text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path

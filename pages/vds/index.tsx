@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import sortBy from 'lodash/sortBy';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { setPageTitle } from '../store/themeConfigSlice';
+import { setPageTitle } from '../../store/themeConfigSlice';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+import { useRouter } from 'next/router';
 
 const rowData = [
     {
@@ -124,8 +126,15 @@ const MultipleTables = () => {
         { value: 'purple', label: 'Purple' },
     ];
 
+    const animatedComponents = makeAnimated();
+
+    const customStyles = {
+        menu: (provided: any) => ({ ...provided, zIndex: 9999 }),
+      };
+
+    const router = useRouter();
+
     return (
-        <div>
 
             <div className="panel mt-5">
                 <div className="mb-5 flex flex-col gap-5 md:flex-row md:items-center">
@@ -133,17 +142,47 @@ const MultipleTables = () => {
                     
                 </div>
                 <div className="mb-5 flex flex-col gap-5 md:flex-row md:items-center">
-                <button type="button" className="btn btn-primary">
-                <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                                Add New
-                            </button>
-                    <div className="ltr:ml-auto">
-                    <Select placeholder="Select an option" options={options3} />
-                    </div>
-                    <div className="rtl:mr-auto">
-                        <input type="text" className="form-input w-auto" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
-                    </div>
+                <button 
+                    type="button" 
+                    className="btn btn-primary py-1 px-3"
+                    onClick={() => router.push('vds/create')}
+                >
+                    <svg 
+                    width="20" height="20" viewBox="0 0 24 24" 
+                    stroke="currentColor" stroke-width="1.5" 
+                    fill="none" stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    className="w-6 h-6"
+                    >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add New
+                </button>
+                
+                <div className="ltr:ml-auto">
+                    <Select
+                    styles={customStyles}
+                    className="min-w-[300px] w-full"
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    isMulti
+                    options={options3}
+                    />
                 </div>
+                
+                <div className="rtl:mr-auto">
+                    <input 
+                    type="text" 
+                    className="form-input min-w-[300px] w-full"
+                    placeholder="Search..." 
+                    value={search} 
+                    onChange={(e) => setSearch(e.target.value)} 
+                    />
+                </div>
+                </div>
+
+
                 
                 <div className="datatables">
                     {isMounted && (
@@ -211,7 +250,7 @@ const MultipleTables = () => {
                                     render: () => (
                                         <div className="mx-auto flex w-max items-center gap-2">
                                             <Tippy content="View">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"><path opacity="0.5" d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z" stroke="currentColor" stroke-width="1.5"></path><path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="1.5"></path></svg>
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6"><path opacity="0.5" d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z" stroke="currentColor" stroke-width="1.5"></path><path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="1.5"></path></svg>
                                             </Tippy>
                                             
                                         </div>
@@ -232,7 +271,6 @@ const MultipleTables = () => {
                     )}
                 </div>
             </div>
-        </div>
     );
 };
 
