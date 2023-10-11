@@ -35,6 +35,30 @@ const ImportPage = () => {
         recieveNo: Yup.string().required('Please fill the Name'),
     });
 
+    const [rows, setRows] = useState([{ isChecked: false }]);  // Initial row
+    const [selectAll, setSelectAll] = useState(false);
+
+    const handleCheckAll = () => {
+        const newSelectAll = !selectAll;
+        setSelectAll(newSelectAll);
+        setRows(rows.map(row => ({ ...row, isChecked: newSelectAll })));
+    };
+
+    const handleCheckRow = index => {
+        const newRows = [...rows];
+        newRows[index].isChecked = !newRows[index].isChecked;
+        setRows(newRows);
+    };
+
+    const handleAddRow = () => {
+        setRows([...rows, { isChecked: false }]);
+    };
+
+    const handleDeleteCheckedRows = () => {
+        const uncheckedRows = rows.filter(row => !row.isChecked);
+        setRows(uncheckedRows);
+    };
+
     return (
 
             <div className="panel mt-5">
@@ -147,21 +171,55 @@ const ImportPage = () => {
                                    {submitCount ? errors.remarks ? <div className="mt-1 text-danger">{errors.remarks}</div> : <div className="mt-1 text-success">Looks Good!</div> : ''}
                                </div>
                            </div>
+
+                           <div className="my-4" style={{ marginTop: '50px' }}>
+            <table className="min-w-full border-collapse border">
+                <thead className="bg-gray-300">
+                    <tr>
+                        <th><input type="checkbox" checked={selectAll} onChange={handleCheckAll} /></th>
+                        <th>Receive Master ID</th>
+                        <th>Receive Amount</th>
+                        <th>VAT Amount</th>
+                        <th>Deducted Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows.map((row, index) => (
+                        <tr key={index} className="border-b">
+                            <td className="border-r"><input type="checkbox" checked={row.isChecked} onChange={() => handleCheckRow(index)} /></td>
+                            <td className="border-r">
+                                <select className="border p-1 w-full">
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                </select>
+                            </td>
+                            <td className="bg-gray-300 border-r"></td>
+                            <td className="bg-gray-300 border-r"></td>
+                            <td className="bg-gray-300"></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            <div className="flex justify-between items-center mt-4 border p-2">
+                <div>
+                    <span className="mr-2 cursor-pointer" onClick={handleAddRow}>➕</span>
+                    <span className="cursor-pointer" onClick={handleDeleteCheckedRows}>❌</span>
+                </div>
+                <div>
+                    <button className="bg-blue-500 text-white px-3 py-1 mr-2">Close</button>
+                    <button className="bg-yellow-500 text-white px-3 py-1 mr-2">Reset</button>
+                    <button className="bg-green-500 text-white px-3 py-1">Save</button>
+                </div>
+            </div>
+        </div>
                            
 
 
 
-                           <button
-                               type="submit"
-                               className="btn btn-primary !mt-6"
-                               onClick={() => {
-                                   if (touched.recieveNo && !errors.recieveNo) {
-                                       submitForm();
-                                   }
-                               }}
-                           >
-                               Submit Form
-                           </button>
+                    
+
+                           
                        </Form>
                    )}
                </Formik>

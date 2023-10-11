@@ -145,7 +145,7 @@ const MultipleTables = () => {
                 <button 
                     type="button" 
                     className="btn btn-primary py-1 px-3"
-                    onClick={() => router.push('vds/create')}
+                    onClick={() => router.push('vds/create2')}
                 >
                     <svg 
                     width="20" height="20" viewBox="0 0 24 24" 
